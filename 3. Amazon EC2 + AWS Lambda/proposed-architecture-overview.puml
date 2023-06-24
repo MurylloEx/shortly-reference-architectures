@@ -1,0 +1,91 @@
+@startuml "AWS Architecture Diagram"
+
+title "Proposed Architecture"
+
+left to right direction
+
+!define AWSPUML https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v15.0/dist
+
+!include AWSPUML/AWSCommon.puml
+!include AWSPUML/Database/RDS.puml
+!include AWSPUML/Database/DynamoDB.puml
+!include AWSPUML/General/Users.puml
+!include AWSPUML/Groups/VPC.puml
+!include AWSPUML/Groups/Region.puml
+!include AWSPUML/Groups/AWSCloud.puml
+!include AWSPUML/Groups/SecurityGroup.puml
+!include AWSPUML/Groups/PublicSubnet.puml
+!include AWSPUML/Groups/PrivateSubnet.puml
+!include AWSPUML/Groups/AvailabilityZone.puml
+!include AWSPUML/Groups/AutoScalingGroup.puml
+!include AWSPUML/Compute/Lambda.puml
+!include AWSPUML/Compute/EC2SpotInstance.puml
+!include AWSPUML/ApplicationIntegration/APIGateway.puml
+!include AWSPUML/ApplicationIntegration/APIGatewayEndpoint.puml
+!include AWSPUML/NetworkingContentDelivery/Route53.puml
+!include AWSPUML/NetworkingContentDelivery/VPCInternetGateway.puml
+!include AWSPUML/SecurityIdentityCompliance/CertificateManager.puml
+
+Users(MyUsers, "Usuários", "Quem utiliza e interage com o sistema")
+
+AWSCloudGroup(cloud) {
+  RegionGroup(region) {
+
+    DynamoDB(MyDynamoDB, "Banco de Dados", "Armazena de forma não-relacional a tabela de roteamento utilizada pela função Lambda que atua como Application Load Balancer")
+    Route53(MyRoute53, "Hosted Zone", "Processa as consultas DNS aos nomes de domínio do sistema")
+    APIGateway(MyApiGateway, "API Gateway", "Encaminha todas as solicitações para o Endpoint Lambda")
+    APIGatewayEndpoint(MyApiGatewayEndpoint, "Endpoint Lambda", "Responsável por invocar a função Lambda de balanceamento de carga utilizando um evento do tipo APIGatewayProxyEventV2")
+    CertificateManager(MyCertificateManager, "Certificado SSL", "Serviço de emissão de certificados TLS/SSL da Amazon")
+
+    together {
+      Lambda(MyLambda, "Função Lambda", "Mantém no DynamoDB o índice do próximo servidor a receber a solicitação, adotando a estratégia de balanceamento Round-Robin")
+
+      VPCGroup(MyVPC) {
+
+        AvailabilityZoneGroup(MyAvailabilityZone, "Availability Zone (us-east-1a)") {
+          PublicSubnetGroup(MyPublicSubnet) {
+            AutoScalingGroupGroup(MyAutoScalingGroup) {
+              SecurityGroupGroup(MySecurityGroupAA, "Security Group A") {
+                EC2SpotInstance(MySpotA, "VM Sobressalente", "Máquina EC2 T3 Micro / Ubuntu")
+              }
+              SecurityGroupGroup(MySecurityGroupAB, "Security Group A") {
+                EC2SpotInstance(MySpotB, "VM Sobressalente", "Máquina EC2 T3 Micro / Ubuntu")
+              }
+              SecurityGroupGroup(MySecurityGroupAC, "Security Group A") {
+                EC2SpotInstance(MySpotC, "VM Sobressalente", "Máquina EC2 T3 Micro / Ubuntu")
+              }
+            }
+
+          }
+
+          PrivateSubnetGroup(MyPrivateSubnet) {
+            SecurityGroupGroup(MySecurityGroupB, "Security Group B") {
+              RDS(MyRDS, "MySQL 8.0.27", "Banco de dados relacional MySQL")
+            }
+          }
+        }
+        
+      }
+    }
+    
+  }
+}
+
+MyUsers <--> MyRoute53
+
+MyRoute53 <--> MyApiGateway
+MyApiGateway --> MyCertificateManager
+MyApiGateway <--> MyApiGatewayEndpoint
+MyApiGatewayEndpoint <--> MyLambda
+
+MyLambda <-up-> MyDynamoDB
+
+MyLambda <--> MySpotA
+MyLambda <--> MySpotB
+MyLambda <--> MySpotC
+
+MySpotA <--> MyRDS
+MySpotB <--> MyRDS
+MySpotC <--> MyRDS
+
+@enduml
