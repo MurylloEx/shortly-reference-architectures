@@ -16,7 +16,7 @@
   <p align="center">
     Esse é um estudo sobre as arquiteturas de software Serverless (AWS Lambda), On-premises (Amazon EC2) e distribuídas (AWS Lambda + Amazon EC2).
     <br />
-    <a href="#"><strong>Explore as arquiteturas »</strong></a>
+    <a href="#reference-architectures"><strong>Explore as arquiteturas »</strong></a>
     <br />
     <br />
     <a href="https://shortly.com.br/">Shortly (Serverless)</a>
@@ -24,6 +24,10 @@
     <a href="https://shortly.digital/">Shortly (On-premises)</a>
   </p>
 </div>
+
+<hr/>
+
+<h2>Índice</h2>
 
 <ol>
   <li><a href="#about-the-project">Sobre o projeto</a></li>
@@ -35,9 +39,11 @@
   <li><a href="#disadvantages">Desvantagens da arquitetura proposta</a></li>
 </ol>
 
+<hr/>
+
 <a id="about-the-project"></a>
 
-## Sobre o trabalho
+## 1. Sobre o trabalho
 
 O propósito deste trabalho é analisar e comparar três diferentes arquiteturas de software da AWS para o projeto Shortly, a fim de identificar a arquitetura mais eficaz e eficiente com base em vários critérios, incluindo custo, desempenho, escalabilidade e resiliência. O objetivo é proporcionar uma compreensão mais profunda das vantagens e desvantagens de cada abordagem, permitindo uma decisão informada sobre qual arquitetura é a mais adequada para o projeto em questão.
 
@@ -47,17 +53,21 @@ Ao final deste trabalho, espera-se obter uma compreensão clara das capacidades 
 
 <p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
+<hr/>
+
 <a id="objectives"></a>
 
-## Objetivos do trabalho
+## 2. Objetivos do trabalho
 
 O objetivo dos diagramas de arquitetura expostos nesse repositório é ilustrar 3 diferentes arquiteturas para que seja possível se criar uma base de análise comparativa. Com base nas arquiteturas de referência do Shortly na versão Serverless e On-premises serão analisadas suas vantagens e desvantagens e seus devidos cenários de aplicabilidade para se arquitetar uma proposta que seja compatível com os interesses de uma organização que queira reduzir consideravelmente seus custos em nuvem ao mesmo tempo que se presa pelas melhores práticas de DevOps. A arquitetura proposta vem como uma alternativa às duas arquiteturas anteriores e tem algumas vantagens em relação às arquiteturas Serverless, mas, também traz consigo algumas desvantagens importantes de serem discutidas conforme aponta a seção seguinte.
 
 <p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
+<hr/>
+
 <a id="reference-architectures-aws"></a>
 
-## Arquiteturas de Referência da AWS
+## 3. Arquiteturas de Referência da AWS
 
 Realizar um levantamento das arquiteturas de referência da AWS (Amazon Web Services) e encontrar padrões em arquiteturas Serverless e EC2 (Elastic Compute Cloud) pode ser vantajoso por várias razões.
 
@@ -73,9 +83,11 @@ Diante disso, esse trabalho realizou um levantamento de 65 arquiteturas de refer
 
 <p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
+<hr/>
+
 <a id="reference-architectures"></a>
 
-## Arquiteturas de Referência
+## 4. Arquiteturas de Referência
 
 <details>
   <summary>Arquitetura de Referência Serverless (AWS Lambda)</summary>
@@ -141,9 +153,11 @@ Diante disso, esse trabalho realizou um levantamento de 65 arquiteturas de refer
 
 <p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
+<hr/>
+
 <a id="proposed-architecture"></a>
 
-## Arquitetura Proposta
+## 5. Arquitetura Proposta
 
 <details>
   <summary>Arquitetura Proposta (AWS Lambda + Amazon EC2 Spot)</summary>
@@ -154,9 +168,11 @@ Diante disso, esse trabalho realizou um levantamento de 65 arquiteturas de refer
 
 <p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
+<hr/>
+
 <a id="advantages"></a>
 
-## Vantagens da arquitetura proposta
+## 6. Vantagens da arquitetura proposta
 
 - A arquitetura proposta utiliza tanto AWS Lambda (Serverless) quanto Amazon EC2 Spot;
 - Utiliza um balanceamento de carga inteligente baseado em Round-Robin com uma tabela de roteamento que fica armazenada no Amazon DynamoDB, sendo equivalente à um protocolo de Fail-over;
@@ -170,9 +186,11 @@ Diante disso, esse trabalho realizou um levantamento de 65 arquiteturas de refer
 
 <p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
+<hr/>
+
 <a id="disadvantages"></a>
 
-## Desvantagens da arquitetura proposta
+## 7. Desvantagens da arquitetura proposta
 
 - O custo geral da arquitetura proposta ainda assim é maior que os custos de uma arquitetura puramente Serverless, em decorrência da utilização de instâncias que são cobradas por Hora-Uso e instâncias do Amazon RDS que possuem um modelo de precificação similar às instâncias Amazon EC2 On-demand;
 - Pode ser tedioso criar as pipelines de construção e implantação com várias instâncias Amazon EC2 Spot pois o quesito disponibilidade precisa ser levado em consideração no processo de implantação e o tráfego de rede precisa ser remapeado rapidamente para instâncias em execução, enquanto outras instâncias se tornam indisponíveis no processo de implantação;
