@@ -25,6 +25,15 @@
   </p>
 </div>
 
+<p align="center">
+  <a href="https://doi.org/10.5281/zenodo.8079703" title="Shortly - Serverless Architecture">
+    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.8079703.svg" alt="DOI">
+  </a>
+  <a href="https://doi.org/10.5281/zenodo.8079671" title="Shortly - EC2 Architecture">
+    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.8079671.svg" alt="DOI">
+  </a>
+</p>
+
 <hr/>
 
 <h2>Índice</h2>
@@ -91,64 +100,30 @@ Diante disso, esse trabalho realizou um levantamento de 65 arquiteturas de refer
 
 <details>
   <summary>Arquitetura de Referência Serverless (AWS Lambda)</summary>
-  <p align="center">
-    <img src=".github/images/aws-lambda/lambda-architecture-overview.svg" alt="Arquitetura Serverless">
-  </p>
-  <p align="center">
-    <img src=".github/images/aws-lambda/lambda-flow-request-shortly-frontend.svg" alt="Arquitetura Serverless">
-  </p>
-  <p align="center">
-    <img src=".github/images/aws-lambda/lambda-flow-delete-shorten-url-by-code.svg" alt="Arquitetura Serverless">
-  </p>
-  <p align="center">
-    <img src=".github/images/aws-lambda/lambda-flow-redirect-to-real-url-by-code.svg" alt="Arquitetura Serverless">
-  </p>
-  <p align="center">
-    <img src=".github/images/aws-lambda/lambda-flow-route-not-found.svg" alt="Arquitetura Serverless">
-  </p>
-  <p align="center">
-    <img src=".github/images/aws-lambda/lambda-flow-shorten-url.svg" alt="Arquitetura Serverless">
-  </p>
-  <p align="center">
-    <img src=".github/images/aws-lambda/lambda-flow-update-shorten-url-by-code.svg" alt="Arquitetura Serverless">
-  </p>
-  <p align="center">
-    <img src=".github/images/aws-lambda/lambda-flow-view-shorten-url-info-by-code.svg" alt="Arquitetura Serverless">
-  </p>
+
+  <br />
+
+  Para mais detalhes sobre essa arquitetura, considere acessar o documento da Arquitetura de Referência Serverless no **OpenAIRE (OpenAIRE – Open Access Infrastructure for Research in Europe)** o qual contém mais esclarecimentos sobre cada item exposto nos diagramas de arquitetura e nos diagramas de sequência.
+  
+  <a href="https://doi.org/10.5281/zenodo.8079703">
+    <strong>Explore Shortly - Serverless Architecture on OpenAIRE/Zenodo »</strong>
+  </a>
+
+  <br />
 </details>
 
 <details>
   <summary>Arquitetura de Referência On-premises (Amazon EC2)</summary>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-architecture-overview.svg" alt="Arquitetura EC2">
-  </p>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-architecture-ci-cd-back.svg" alt="Arquitetura EC2">
-  </p>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-architecture-ci-cd-front.svg" alt="Arquitetura EC2">
-  </p>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-flow-request-shortly-frontend.svg" alt="Arquitetura EC2">
-  </p>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-flow-delete-shorten-url-by-code.svg" alt="Arquitetura EC2">
-  </p>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-flow-redirect-to-real-url-by-code.svg" alt="Arquitetura EC2">
-  </p>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-flow-route-not-found.svg" alt="Arquitetura EC2">
-  </p>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-flow-shorten-url.svg" alt="Arquitetura EC2">
-  </p>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-flow-update-shorten-url-by-code.svg" alt="Arquitetura EC2">
-  </p>
-  <p align="center">
-    <img src=".github/images/amazon-ec2/ec2-flow-view-shorten-url-info-by-code.svg" alt="Arquitetura EC2">
-  </p>
+  
+  <br />
+
+  Para mais detalhes sobre essa arquitetura, considere acessar o documento da Arquitetura de Referência EC2 no **OpenAIRE (OpenAIRE – Open Access Infrastructure for Research in Europe)** o qual contém mais esclarecimentos sobre cada item exposto nos diagramas de arquitetura e nos diagramas de sequência.
+  
+  <a href="https://doi.org/10.5281/zenodo.8079671">
+    <strong>Explore Shortly - EC2 Architecture on OpenAIRE/Zenodo »</strong>
+  </a>
+
+  <br />
 </details>
 
 <p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
@@ -161,9 +136,17 @@ Diante disso, esse trabalho realizou um levantamento de 65 arquiteturas de refer
 
 <details>
   <summary>Arquitetura Proposta (AWS Lambda + Amazon EC2 Spot)</summary>
-  <p align="center">
-    <img src=".github/images/amazon-ec2-aws-lambda/proposed-architecture-overview.svg" alt="Arquitetura Proposta">
-  </p>
+
+  <br />
+
+  Para mais detalhes sobre a arquitetura proposta, considere acessar o documento da Arquitetura Proposta no **OpenAIRE (OpenAIRE – Open Access Infrastructure for Research in Europe)** o qual contém mais esclarecimentos sobre cada item exposto nos diagramas de arquitetura.
+  
+  <a href="https://doi.org/10.5281/zenodo.8079911">
+    <strong>Explore Proposed Architecture (AWS Lambda + Amazon EC2 Spot) on OpenAIRE/Zenodo »</strong>
+  </a>
+
+  <br />
+
 </details>
 
 <p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
