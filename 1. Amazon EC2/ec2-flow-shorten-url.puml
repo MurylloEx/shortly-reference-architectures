@@ -28,7 +28,7 @@ autonumber 2.1
 MyApiGateway -> MyEC2 : Encaminha a solicitação para o endpoint NestJS apropriado
 MyApiGateway -->> MyCloudWatch : Adiciona uma entrada nos logs contendo o RequestID, o método e a rota da solicitação
 autonumber 3.1
-MyEC2 -> MyRDS : Insere o registro ShortenUrl da URL encurtada
+MyEC2 -> MyRDS : Insere o registro ShortUrl da URL encurtada
 autonumber 3.1
 MyRDS --> MyEC2 : Registro ShortUrl da URL encurtada
 autonumber 2.1

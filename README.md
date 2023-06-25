@@ -4,11 +4,11 @@
 <div align="center">
 
   <p align="center">
-    <img src=".github/images/shortly_logo.png" alt="Logo" height="80">
+    <img src=".github/images/shortly_logo.png" alt="Shortly Logo" height="80">
   </p>
   <p align="center">
-    <img src=".github/images/plantuml_logo.png" alt="Logo" height="80" style="padding-right: 12px;">
-    <img src=".github/images/aws_logo.png" alt="Logo" height="60" style="padding-left: 12px;">
+    <img src=".github/images/plantuml_logo.png" alt="PlantUML Logo" height="80">
+    <img src=".github/images/aws_logo.png" alt="AWS Logo" height="60">
   </p>
 
   <h3 align="center">Arquitetura de Referência</h3>
@@ -28,7 +28,9 @@
 <ol>
   <li><a href="#about-the-project">Sobre o projeto</a></li>
   <li><a href="#objectives">Objetivos do trabalho</a></li>
-  <li><a href="#reference-architecture">Arquiteturas de referência da AWS</a></li>
+  <li><a href="#reference-architectures-aws">Arquiteturas de Referência da AWS</a></li>
+  <li><a href="#reference-architectures">Arquiteturas de Referência</a></li>
+  <li><a href="#proposed-architecture">Arquitetura Proposta</a></li>
   <li><a href="#advantages">Vantagens da arquitetura proposta</a></li>
   <li><a href="#disadvantages">Desvantagens da arquitetura proposta</a></li>
 </ol>
@@ -43,7 +45,7 @@ Em particular, este trabalho investiga a viabilidade de uma arquitetura proposta
 
 Ao final deste trabalho, espera-se obter uma compreensão clara das capacidades e limitações de cada arquitetura, bem como insights valiosos sobre como otimizar a arquitetura de software para projetos futuros. Isso pode ajudar a melhorar a eficiência operacional, reduzir custos e melhorar a qualidade geral do serviço.
 
-<p align="right">(<a href="#readme-top">Voltar ao topo</a>)</p>
+<p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
 <a id="objectives"></a>
 
@@ -51,11 +53,11 @@ Ao final deste trabalho, espera-se obter uma compreensão clara das capacidades 
 
 O objetivo dos diagramas de arquitetura expostos nesse repositório é ilustrar 3 diferentes arquiteturas para que seja possível se criar uma base de análise comparativa. Com base nas arquiteturas de referência do Shortly na versão Serverless e On-premises serão analisadas suas vantagens e desvantagens e seus devidos cenários de aplicabilidade para se arquitetar uma proposta que seja compatível com os interesses de uma organização que queira reduzir consideravelmente seus custos em nuvem ao mesmo tempo que se presa pelas melhores práticas de DevOps. A arquitetura proposta vem como uma alternativa às duas arquiteturas anteriores e tem algumas vantagens em relação às arquiteturas Serverless, mas, também traz consigo algumas desvantagens importantes de serem discutidas conforme aponta a seção seguinte.
 
-<p align="right">(<a href="#readme-top">Voltar ao topo</a>)</p>
+<p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
-<a id="reference-architecture"></a>
+<a id="reference-architectures-aws"></a>
 
-## Arquiteturas de referência da AWS
+## Arquiteturas de Referência da AWS
 
 Realizar um levantamento das arquiteturas de referência da AWS (Amazon Web Services) e encontrar padrões em arquiteturas Serverless e EC2 (Elastic Compute Cloud) pode ser vantajoso por várias razões.
 
@@ -69,7 +71,88 @@ Realizar essa análise pode contribuir para uma análise comparativa entre Serve
 
 Diante disso, esse trabalho realizou um levantamento de 65 arquiteturas de referência do AWS Lambda e do Amazon EC2 com fim em identificar padrões amplamente aderentes ao mercado, melhores práticas com base nas recomendações dos parceiros da AWS e também servir como uma base teórica para as tomadas de decisão das arquiteturas de referência utilizadas no Shortly. Ao final do processo, foram levantados pontos positivos, negativos e supostas melhorias que permitiram a criação de uma proposta de arquitetura viável com forte ênfase em redução de custos, mantendo a disponibilidade como uma preocupação central.
 
-<p align="right">(<a href="#readme-top">Voltar ao topo</a>)</p>
+<p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
+
+<a id="reference-architectures"></a>
+
+## Arquiteturas de Referência
+
+<details>
+  <summary>Arquitetura de Referência Serverless (AWS Lambda)</summary>
+  <p align="center">
+    <img src=".github/images/aws-lambda/lambda-architecture-overview.svg" alt="Arquitetura Serverless">
+  </p>
+  <p align="center">
+    <img src=".github/images/aws-lambda/lambda-flow-request-shortly-frontend.svg" alt="Arquitetura Serverless">
+  </p>
+  <p align="center">
+    <img src=".github/images/aws-lambda/lambda-flow-delete-shorten-url-by-code.svg" alt="Arquitetura Serverless">
+  </p>
+  <p align="center">
+    <img src=".github/images/aws-lambda/lambda-flow-redirect-to-real-url-by-code.svg" alt="Arquitetura Serverless">
+  </p>
+  <p align="center">
+    <img src=".github/images/aws-lambda/lambda-flow-route-not-found.svg" alt="Arquitetura Serverless">
+  </p>
+  <p align="center">
+    <img src=".github/images/aws-lambda/lambda-flow-shorten-url.svg" alt="Arquitetura Serverless">
+  </p>
+  <p align="center">
+    <img src=".github/images/aws-lambda/lambda-flow-update-shorten-url-by-code.svg" alt="Arquitetura Serverless">
+  </p>
+  <p align="center">
+    <img src=".github/images/aws-lambda/lambda-flow-view-shorten-url-info-by-code.svg" alt="Arquitetura Serverless">
+  </p>
+</details>
+
+<details>
+  <summary>Arquitetura de Referência On-premises (Amazon EC2)</summary>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-architecture-overview.svg" alt="Arquitetura EC2">
+  </p>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-architecture-ci-cd-back.svg" alt="Arquitetura EC2">
+  </p>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-architecture-ci-cd-front.svg" alt="Arquitetura EC2">
+  </p>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-flow-request-shortly-frontend.svg" alt="Arquitetura EC2">
+  </p>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-flow-delete-shorten-url-by-code.svg" alt="Arquitetura EC2">
+  </p>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-flow-redirect-to-real-url-by-code.svg" alt="Arquitetura EC2">
+  </p>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-flow-route-not-found.svg" alt="Arquitetura EC2">
+  </p>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-flow-shorten-url.svg" alt="Arquitetura EC2">
+  </p>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-flow-update-shorten-url-by-code.svg" alt="Arquitetura EC2">
+  </p>
+  <p align="center">
+    <img src=".github/images/amazon-ec2/ec2-flow-view-shorten-url-info-by-code.svg" alt="Arquitetura EC2">
+  </p>
+</details>
+
+<p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
+
+<a id="proposed-architecture"></a>
+
+## Arquitetura Proposta
+
+<details>
+  <summary>Arquitetura Proposta (AWS Lambda + Amazon EC2 Spot)</summary>
+  <p align="center">
+    <img src=".github/images/amazon-ec2-aws-lambda/proposed-architecture-overview.svg" alt="Arquitetura Proposta">
+  </p>
+</details>
+
+<p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
 <a id="advantages"></a>
 
@@ -85,7 +168,7 @@ Diante disso, esse trabalho realizou um levantamento de 65 arquiteturas de refer
 - É escalável tanto horizontalmente quanto verticalmente pois através do Auto Scaling Group novas instâncias com diferentes configurações de hardware podem ser iniciadas conforme aumento da demanda, algo a ser definido pelo engenheiro de software responsável;
 - Não impõe limites de memória como o AWS Lambda impõe ao limitar o uso de memória à no máximo 10GB pois há instâncias spot com até 4 TB de memória RAM disponíveis;
 
-<p align="right">(<a href="#readme-top">Voltar ao topo</a>)</p>
+<p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>
 
 <a id="disadvantages"></a>
 
@@ -93,12 +176,8 @@ Diante disso, esse trabalho realizou um levantamento de 65 arquiteturas de refer
 
 - O custo geral da arquitetura proposta ainda assim é maior que os custos de uma arquitetura puramente Serverless, em decorrência da utilização de instâncias que são cobradas por Hora-Uso e instâncias do Amazon RDS que possuem um modelo de precificação similar às instâncias Amazon EC2 On-demand;
 - Pode ser tedioso criar as pipelines de construção e implantação com várias instâncias Amazon EC2 Spot pois o quesito disponibilidade precisa ser levado em consideração no processo de implantação e o tráfego de rede precisa ser remapeado rapidamente para instâncias em execução, enquanto outras instâncias se tornam indisponíveis no processo de implantação;
-- Possui a mesma natureza stateful que há no Serverless pois se as instâncias são sobressalentes e podem ser removidas à qualquer momento pela AWS, as aplicações não podem depender de estado de memória e de armazenamento de arquivos, sendo qualquer forma de memória volátil e efêmera;
+- Possui a mesma natureza stateful do Serverless pois se as instâncias são sobressalentes e podem ser removidas à qualquer momento pela AWS, as aplicações não podem depender de estado de memória e de armazenamento de arquivos, sendo qualquer forma de memória volátil e efêmera;
 - Possui os mesmos problemas de desempenho relacionados à Warm Start e Cold Start em decorrência da FaaS ser quem realiza o balanceamento de carga da infraestrutura e o responsável por repassar as solicitações HTTP/S para as instâncias Amazon EC2 Spot;
 - A configuração pode necessitar acesso SSH caso o processo de DevOps não seja totalmente automatizado conforme as boas práticas exigem;
 
-<p align="right">(<a href="#readme-top">Voltar ao topo</a>)</p>
-
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+<p align="right">[<a href="#readme-top">Voltar ao topo</a>]</p>

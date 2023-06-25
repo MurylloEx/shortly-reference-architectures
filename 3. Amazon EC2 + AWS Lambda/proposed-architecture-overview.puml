@@ -55,7 +55,6 @@ AWSCloudGroup(cloud) {
                 EC2SpotInstance(MySpotC, "VM Sobressalente", "Máquina EC2 T3 Micro / Ubuntu")
               }
             }
-
           }
 
           PrivateSubnetGroup(MyPrivateSubnet) {
